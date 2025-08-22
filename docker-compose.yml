@@ -1,7 +1,6 @@
-version: '3.1'
 services:
   postgresql:
-    container_name: 'my_postgres'
+    container_name: 'spotify_postgres'
     image: postgres
     restart: always
     environment:
@@ -11,10 +10,11 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
   pgadmin:
+    container_name: 'spotify_pgadmin'
     image: dpage/pgadmin4
     environment:
-      PGADMIN_DEFAULT_EMAIL: "seuemail@email.com"
-      PGADMIN_DEFAULT_PASSWORD: "senha1"
+      PGADMIN_DEFAULT_EMAIL: "meuemail@email.com"
+      PGADMIN_DEFAULT_PASSWORD: "password"
     ports:
       - "8090:80"
     depends_on:
